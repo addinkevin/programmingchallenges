@@ -1,16 +1,17 @@
 import unittest
 
+
 def operationInsert(valueFrequencies, frequencyFrequencies, value):
     currentFreq = valueFrequencies.get(value, 0)
     valueFrequencies[value] = currentFreq + 1
     if currentFreq > 0:
         frequencyFrequencies[currentFreq] -= 1
-    
+
     frequencyFrequencies[currentFreq + 1] = (
         frequencyFrequencies.get(currentFreq + 1, 0) + 1
     )
 
-    
+
 def operationDelete(valueFrequencies, frequencyFrequencies, value):
     if value not in valueFrequencies or valueFrequencies[value] == 0:
         return
@@ -23,8 +24,8 @@ def operationDelete(valueFrequencies, frequencyFrequencies, value):
 
 
 def operationCheck(valueFrequencies, frequencyFrequencies, frequency):
-    if (frequency not in frequencyFrequencies 
-        or frequencyFrequencies[frequency] == 0):
+    if (frequency not in frequencyFrequencies
+            or frequencyFrequencies[frequency] == 0):
         return 0
     return 1
 
